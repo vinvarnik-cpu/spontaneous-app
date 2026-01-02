@@ -3,22 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Спонтанность ⚡</title>
+  <title>Спонтанность</title>
   <link rel="stylesheet" href="style.css">
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
-  <div class="app">
-    <h1>⚡ Спонтанность</h1>
-    <p id="task">Сегодня ты ещё не выбрала дискомфорт</p>
-    <button id="getTaskBtn">Дать задание</button>
+  <h1>⚡ Спонтанность</h1>
+
+  <!-- Настройки -->
+  <div id="settingsPanel">
+    <h3>Настройки</h3>
+    <label>Заданий в день:
+      <input type="number" id="tasksPerDayInput" min="1" value="1">
+    </label><br>
+    <label>Начало уведомлений:
+      <input type="number" id="startHourInput" min="0" max="23" value="9">
+    </label><br>
+    <label>Конец уведомлений:
+      <input type="number" id="endHourInput" min="0" max="23" value="21">
+    </label><br>
+    <button id="saveSettingsBtn">Сохранить настройки</button>
+  </div>
+
+  <!-- Главное задание -->
+  <div id="taskSection">
+    <button id="getTaskBtn">Получить задание</button>
+    <p id="task"></p>
+    <p id="timer">⏱ 0:00</p>
     <div id="actions" class="hidden">
-      <p id="timer">⏱ 3:00</p>
-      <button class="done">Выполнила</button>
-      <button class="skip">Пропустить</button>
-    <div id="settingsPanel">
-  <button id="settingsBtn">Настройки</button>
-</div>
+      <button class="done">Выполнила ✅</button>
+      <button class="skip">Пропустить ❌</button>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
