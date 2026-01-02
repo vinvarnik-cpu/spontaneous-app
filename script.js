@@ -86,16 +86,26 @@ skipBtn.onclick = () => {
 
 // --- Настройки ---
 settingsBtn.onclick = () => {
-  let input = prompt("Сколько заданий в день? (минимум 1)", settings.tasksPerDay);
-  input = parseInt(input);
-  if (input >= 1) {
-    settings.tasksPerDay = input;
-    localStorage.setItem("settings", JSON.stringify(settings));
-    alert(`Настройки сохранены: ${settings.tasksPerDay} заданий в день`);
-  } else {
-    alert("Минимум 1 задание обязательно");
-  }
+  // Количество заданий
+  let tasksInput = prompt("Сколько заданий в день? (минимум 1)", settings.tasksPerDay);
+  tasksInput = parseInt(tasksInput);
+  if (tasksInput >= 1) settings.tasksPerDay = tasksInput;
+
+  // Интервал времени начала
+  let startInput = prompt("Во сколько начинается период уведомлений? (0-23)", settings.startHour);
+  startInput = parseInt(startInput);
+  if (startInput >= 0 && startInput <= 23) settings.startHour = startInput;
+
+  // Интервал времени конца
+  let endInput = prompt("Во сколько заканчивается период уведомлений? (0-23)", settings.endHour);
+  endInput = parseInt(endInput);
+  if (endInput >= 0 && endInput <= 23 && endInput > settings.startHour) settings.endHour = endInput;
+
+  // Сохраняем
+  localStorage.setItem("settings", JSON.stringify(settings));
+  alert(`Настройки сохранены:\nЗаданий в день: ${settings.tasksPerDay}\nПериод уведомлений: ${settings.startHour}:00 - ${settings.endHour}:00`);
 };
+
 
 // --- Спонтанные уведомления ---
 function scheduleNotifications() {
@@ -105,8 +115,10 @@ function scheduleNotifications() {
     start.setHours(settings.startHour, 0, 0, 0);
     const end = new Date();
     end.setHours(settings.endHour, 0, 0, 0);
+
     const randomTime = start.getTime() + Math.random() * (end.getTime() - start.getTime());
     const delay = randomTime - now.getTime();
+
     if (delay > 0) {
       setTimeout(() => {
         if ("Notification" in window && Notification.permission === "granted") {
@@ -122,9 +134,11 @@ function scheduleNotifications() {
   }
 }
 
+
 // --- Разрешение уведомлений ---
 if ("Notification" in window) {
   Notification.requestPermission().then(permission => {
     if (permission === "granted") scheduleNotifications();
   });
 }
+
