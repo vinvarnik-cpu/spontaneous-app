@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #111;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.app {
+  width: 90%;
+  max-width: 320px;
+  text-align: center;
+}
+button {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+}
+.done { background: #2ecc71; }
+.skip { background: #e74c3c; }
+.settings { background: #333; }
+.hidden { display: none; }
