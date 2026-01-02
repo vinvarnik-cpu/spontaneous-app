@@ -3,8 +3,8 @@
   "short_name": "Спонтанность",
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#111111",
-  "theme_color": "#111111",
+  "background_color": "#ffffff",
+  "theme_color": "#ffcc00",
   "icons": [
     {
       "src": "icon.png",

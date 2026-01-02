@@ -1,4 +1,3 @@
-/* --- Общий фон приложения --- */
 body {
   font-family: 'Helvetica', 'Arial', sans-serif;
   background-color: #ffffff;
@@ -10,13 +9,8 @@ body {
   margin: 0;
 }
 
-h1 {
-  font-size: 2em;
-  margin-bottom: 10px;
-  color: #ffcc00;
-}
+h1 { font-size: 2em; margin-bottom: 10px; color: #ffcc00; }
 
-/* --- Верхняя панель --- */
 #topBar {
   width: 100%;
   display: flex;
@@ -35,9 +29,7 @@ h1 {
   animation: pulse 2s infinite;
 }
 
-#toggleSettingsBtn:hover {
-  background-color: #e6b800;
-}
+#toggleSettingsBtn:hover { background-color: #e6b800; }
 
 @keyframes pulse {
   0% { transform: scale(1); }
@@ -45,10 +37,9 @@ h1 {
   100% { transform: scale(1); }
 }
 
-/* --- Панель настроек --- */
 #settingsPanel {
-  background-color: #1e1e1e; /* тёмный фон */
-  color: #ffffff; /* белый текст */
+  background-color: #1e1e1e;
+  color: #ffffff;
   padding: 15px;
   border-radius: 12px;
   width: 90%;
@@ -66,16 +57,9 @@ h1 {
   max-height: 500px;
 }
 
-#settingsPanel h3 {
-  margin-top: 0;
-  color: #ffcc00;
-}
+#settingsPanel h3 { margin-top: 0; color: #ffcc00; }
 
-#settingsPanel label {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 1em;
-}
+#settingsPanel label { display: block; margin-bottom: 10px; font-size: 1em; }
 
 #settingsPanel input {
   width: 60px;
@@ -98,13 +82,10 @@ h1 {
   cursor: pointer;
 }
 
-#settingsPanel button:hover {
-  background-color: #e6b800;
-}
+#settingsPanel button:hover { background-color: #e6b800; }
 
-/* --- Главное задание --- */
 #taskSection {
-  background-color: #f9f9f9; /* светлый фон */
+  background-color: #f9f9f9;
   padding: 20px;
   border-radius: 12px;
   width: 90%;
@@ -125,30 +106,14 @@ h1 {
   margin-bottom: 15px;
 }
 
-#taskSection button#getTaskBtn:hover {
-  background-color: #e6b800;
-}
+#taskSection button#getTaskBtn:hover { background-color: #e6b800; }
 
-#task {
-  font-size: 1.3em;
-  margin: 15px 0;
-  min-height: 40px;
-}
+#task { font-size: 1.3em; margin: 15px 0; min-height: 40px; }
 
-#timer {
-  font-size: 1.1em;
-  margin-bottom: 15px;
-  color: #00cc66;
-}
+#timer { font-size: 1.1em; margin-bottom: 15px; color: #00cc66; }
 
-#actions {
-  display: flex;
-  justify-content: space-around;
-}
-
-#actions.hidden {
-  display: none !important;
-}
+#actions { display: flex; justify-content: space-around; }
+#actions.hidden { display: none !important; }
 
 #actions button {
   padding: 10px 20px;
@@ -159,41 +124,15 @@ h1 {
   font-weight: bold;
 }
 
-#actions button.done {
-  background-color: #00cc66;
-  color: #ffffff;
-}
+#actions button.done { background-color: #00cc66; color: #ffffff; }
+#actions button.done:hover { background-color: #00994d; }
 
-#actions button.done:hover {
-  background-color: #00994d;
-}
+#actions button.skip { background-color: #cc3333; color: #ffffff; }
+#actions button.skip:hover { background-color: #990000; }
 
-#actions button.skip {
-  background-color: #cc3333;
-  color: #ffffff;
-}
-
-#actions button.skip:hover {
-  background-color: #990000;
-}
-
-/* --- Мобильная адаптация --- */
 @media (max-width: 500px) {
-  body {
-    padding: 10px;
-  }
-
-  #settingsPanel, #taskSection {
-    width: 100%;
-    padding: 15px;
-  }
-
-  #taskSection button#getTaskBtn {
-    width: 100%;
-  }
-
-  #actions button {
-    flex: 1;
-    margin: 0 5px;
-  }
+  body { padding: 10px; }
+  #settingsPanel, #taskSection { width: 100%; padding: 15px; }
+  #taskSection button#getTaskBtn { width: 100%; }
+  #actions button { flex: 1; margin: 0 5px; }
 }
